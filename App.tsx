@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import RadioPlayer from "./RadioPlayer";
 import radioStations from "./radioStation";
