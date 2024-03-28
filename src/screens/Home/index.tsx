@@ -1,39 +1,34 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import radioStations from "../../data/radioStation";
 import RadioPlayer from "../../components/RadioPlayer";
-
+import styles from "./styles";
+import { ButtonTypeStation } from "../../components/ButtonTypeStation";
+import { StatusBar } from "expo-status-bar";
+import { CardStation } from "../../components/CardStation";
 
 export default function Home() {
-
   return (
     <View style={styles.container}>
-    <Text style={styles.title}>Radio Manjack</Text>
-
-    <FlatList
-      data={radioStations}
-      keyExtractor={(item) => item.freq}
-      renderItem={({ item }) => (
-        <RadioPlayer freq={item.freq} title={item.title} src={item.src} />
-      )}
-    />
-  </View>
+      <StatusBar backgroundColor="#fff" />
+      <Text style={styles.title}>
+        Escolha uma estação de rádio que você gosta
+      </Text>
+      <View style={styles.containerButtons}>
+        <ScrollView
+          horizontal={true}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
+          <ButtonTypeStation name="Tendência" />
+          <ButtonTypeStation name="Notícias" />
+          <ButtonTypeStation name="Desporto" />
+          <ButtonTypeStation name="Músicas" />
+        </ScrollView>
+      </View>
+      <View style={styles.cards}>
+        <CardStation />
+        <CardStation />
+      </View>
+    </View>
   );
 }
-
-export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#121214",
-      justifyContent: "center",
-      // alignItems: 'center',
-      paddingHorizontal: 24,
-      paddingTop: 56,
-    },
-    title: {
-      color: "#FFF",
-      fontSize: 28,
-      fontWeight: "700",
-      marginBottom: 24,
-    },
-  });
-

@@ -6,7 +6,7 @@ export function SplachScreen({navigation}: any) {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.navigate('Tabs', { screen: 'Home' });
-    }, 4000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);

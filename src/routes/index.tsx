@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import {TabsRouter} from './tabs.routes';
-import { SplachScreen } from '../screens/SplachScreen';
-import { PlayerScreen } from '../screens/Player';
-import { createStackNavigator } from '@react-navigation/stack';
+import { TabsRouter } from "./tabs.routes";
+import { SplachScreen } from "../screens/SplachScreen";
+import { PlayerScreen } from "../screens/Player";
+import { createStackNavigator } from "@react-navigation/stack";
 
 export function Routes() {
   const Stack = createStackNavigator();
