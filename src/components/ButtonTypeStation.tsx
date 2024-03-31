@@ -22,15 +22,14 @@ export function ButtonTypeStation({ name }: ButtonTypeProps) {
 
 const styles = StyleSheet.create({
   button: {
-    height: 40,
+    height: 36,
     paddingLeft: 25,
     paddingRight: 25,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 40,
+    backgroundColor: "#192e3a",
+    borderRadius: 10,
     marginRight: 10,
-    borderWidth: 1,
-    borderColor: '#FFA500',
   },
   focused: {
     backgroundColor: "#FFA500",
@@ -38,5 +37,6 @@ const styles = StyleSheet.create({
   text: {
     color: "#fff",
     fontSize: 14,
+    fontWeight: "500"
   },
 });

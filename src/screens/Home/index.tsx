@@ -1,18 +1,16 @@
 import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
-import radioStations from "../../data/radioStation";
-import RadioPlayer from "../../components/RadioPlayer";
 import styles from "./styles";
 import { ButtonTypeStation } from "../../components/ButtonTypeStation";
 import { StatusBar } from "expo-status-bar";
+
+import { SearchBar } from "../../components/SearchBar";
 import { CardStation } from "../../components/CardStation";
 
-export default function Home() {
+export default function Home({ navigation }: any) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" />
-      <Text style={styles.title}>
-        Escolha uma estação de rádio que você gosta
-      </Text>
+      <SearchBar />
       <View style={styles.containerButtons}>
         <ScrollView
           horizontal={true}
@@ -25,10 +23,50 @@ export default function Home() {
           <ButtonTypeStation name="Músicas" />
         </ScrollView>
       </View>
-      <View style={styles.cards}>
-        <CardStation />
-        <CardStation />
-      </View>
+      <Text style={styles.txt}>Têndencia</Text>
+      <ScrollView
+        contentContainerStyle={styles.cards}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+      >
+        <CardStation
+          image="../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+          navigation={navigation}
+        />
+        <CardStation
+          image="../../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+          navigation={navigation}
+        />
+        <CardStation
+          image="../../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+          navigation={navigation}
+        />
+        <CardStation
+          image="../../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+          navigation={navigation}
+        />
+        <CardStation
+          image="../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+          navigation={navigation}
+        />
+        <CardStation
+          image="../../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+        />
+        <CardStation
+          image="../../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+        />
+        <CardStation
+          image="../../assets/images/kamui.jpg"
+          stationName="Rádios Mais"
+        />
+      </ScrollView>
     </View>
   );
 }

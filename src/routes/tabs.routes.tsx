@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import Favorite from "../screens/Favorite";
 import { Ionicons } from "@expo/vector-icons";
-import { SplachScreen } from "../screens/SplachScreen";
-import About from "../screens/About";
-import { PlayerScreen } from "../screens/Player";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Station } from "../screens/Station";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
 
 export function TabsRouter() {
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: "#031b27",
+          backgroundColor: "#053146",
         },
-        tabBarActiveTintColor: "orange",
+        tabBarActiveTintColor: "#4aa4d1",
         tabBarInactiveTintColor: "white",
       }}
     >
@@ -38,15 +33,15 @@ export function TabsRouter() {
           ),
         }}
       />
-      <Tab.Screen
-        name="Favorite"
-        component={Favorite}
+       <Tab.Screen
+        name="Station"
+        component={Station}
         options={{
           headerShown: false,
-          tabBarLabel: "Favorite",
+          tabBarLabel: "Procurar",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
-              name={focused ? "heart" : "heart-outline"}
+              name={focused ? "search" : "search-outline"}
               size={size}
               color={color}
             />
@@ -54,11 +49,11 @@ export function TabsRouter() {
         }}
       />
       <Tab.Screen
-        name="About"
-        component={About}
+        name="Favorite"
+        component={Favorite}
         options={{
           headerShown: false,
-          tabBarLabel: "About",
+          tabBarLabel: "Favoritos",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
               name={focused ? "heart" : "heart-outline"}

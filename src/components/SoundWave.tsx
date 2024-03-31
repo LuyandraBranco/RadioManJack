@@ -11,7 +11,7 @@ export function SoundWave() {
           style={{
             width: 4,
             height: 65,
-            backgroundColor: "orange",
+            backgroundColor: "white",
             margin: 2,
             borderRadius: 8
           }}

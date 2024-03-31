@@ -4,7 +4,6 @@ export default StyleSheet.create({
   containerPlayer: {
     flex: 1,
     backgroundColor: "#031b27",
-    justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 24,
     paddingTop: 56,
@@ -15,7 +14,6 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 25,
     marginBottom: 20,
   },
   headerArrow: {
@@ -31,8 +29,8 @@ export default StyleSheet.create({
     fontWeight: "400",
   },
   containerImage: {
-    width: "95%",
-    height: "45%",
+    width: "93%",
+    height: "35%",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -67,7 +65,7 @@ export default StyleSheet.create({
     height: 65,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#e6742b",
+    backgroundColor: "#1491ce",
     borderRadius: 40,
   },
   containerText: {
@@ -76,7 +74,7 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    marginBottom: 20
+    marginBottom: 60
   },
   frequency: {
     color: "#fff",
