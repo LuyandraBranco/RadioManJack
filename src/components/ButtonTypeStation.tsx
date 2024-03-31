@@ -3,20 +3,19 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 interface ButtonTypeProps {
   name: string;
+  selectedGenre: string;
+  onGenreSelect: (genre: string) => void;
 }
-export function ButtonTypeStation({ name }: ButtonTypeProps) {
+export function ButtonTypeStation({ name, selectedGenre, onGenreSelect }: ButtonTypeProps) {
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleFocus = () => setIsFocused(true);
-  const handleBlur = () => setIsFocused(false);
   return (
     <TouchableOpacity
-      style={[styles.button, isFocused && styles.focused]}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    >
-      <Text style={styles.text}>{name}</Text>
-    </TouchableOpacity>
+    style={[styles.button, selectedGenre === name && styles.focused]}
+    onPress={() => onGenreSelect(name)}
+  >
+    <Text style={styles.text}>{name}</Text>
+  </TouchableOpacity>
   );
 }
 
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   focused: {
-    backgroundColor: "#FFA500",
+    backgroundColor: "#2d92ef",
   },
   text: {
     color: "#fff",

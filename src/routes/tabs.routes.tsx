@@ -13,8 +13,9 @@ export function TabsRouter() {
       screenOptions={{
         tabBarStyle: {
           backgroundColor: "#053146",
+          borderTopWidth: 0,
         },
-        tabBarActiveTintColor: "#4aa4d1",
+        tabBarActiveTintColor: "#2d92ef",
         tabBarInactiveTintColor: "white",
       }}
     >
