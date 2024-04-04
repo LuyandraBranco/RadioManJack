@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./styles";
 import { StatusBar } from "expo-status-bar";
+import RadioStation from "../../data/radioStation";
 
 const Favorite = ({ navigation }: any) => {
   const [favorites, setFavorites] = useState([]);
@@ -40,19 +41,29 @@ const Favorite = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" />
-      <Text>Favoritos</Text>
+      <Text style={styles.title}>Favoritos</Text>
       <FlatList
         data={favorites}
-        keyExtractor={(item:any) => item.id.toString()}
+        keyExtractor={(item) => item.freq}
         renderItem={({ item }) => (
-          <View>
-            <Text>{item.title}</Text>
-            <TouchableOpacity onPress={() => removeFavorite(item)}>
-              <Ionicons name="heart" size={24} color="red" />
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Player", {
+                stationData: item,
+              })
+            }
+          >
+            <RadioStation
+              freq={item.freq}
+              title={item.title}
+              src={item.src}
+              imageSrc={item.image}
+              navigation={navigation}
+            />
+          </TouchableOpacity>
         )}
       />
+      
     </View>
   );
 };

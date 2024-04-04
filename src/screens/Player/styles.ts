@@ -14,7 +14,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 30,
   },
   headerArrow: {
     marginLeft: 15,
@@ -34,18 +34,18 @@ export default StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#141414",
     marginBottom: 30,
    
   },
   image: {
-    width: 400,
-    height: 200,
-  },
-  img: {
     width: "100%",
     height: "100%",
-    objectFit: "contain",
+  },
+  img: {
+    flex: 1,
+    width: null,
+    height: null,
+    borderRadius: 6,
   },
   stationName: {
     color: "#fff",

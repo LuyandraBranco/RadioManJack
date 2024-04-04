@@ -20,7 +20,7 @@ export function Station({ navigation }: any) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" />
-      <SearchBar onSearch={handleSearch}/>
+      <SearchBar onSearch={handleSearch} />
       <FlatList
         data={filteredStations}
         keyExtractor={(item) => item.freq}
@@ -36,7 +36,7 @@ export function Station({ navigation }: any) {
               freq={item.freq}
               title={item.title}
               src={item.src}
-              imageSrc="sds"
+              imageSrc={item.image}
               navigation={navigation}
             />
           </TouchableOpacity>

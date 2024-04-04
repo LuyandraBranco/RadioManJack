@@ -7,6 +7,16 @@ import { SearchBar } from "../../components/SearchBar";
 import { CardStation } from "../../components/CardStation";
 import { useState } from "react";
 import radioStations from "../../data/radioStation";
+import { stationNames } from "../../data/stationNames";
+
+interface Station {
+  freq: string;
+  title: string;
+  src: string;
+  country: string;
+  genre: string;
+  image: string;
+}
 
 export default function Home({ navigation }: any) {
   const [selectedGenre, setSelectedGenre] = useState("Tendência");
@@ -20,6 +30,8 @@ export default function Home({ navigation }: any) {
     (station) => station.genre === selectedGenre
   );
 
+  console.log(filteredRadioStations)
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" />
@@ -30,27 +42,14 @@ export default function Home({ navigation }: any) {
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
         >
-          <ButtonTypeStation
-            name="Tendência"
-            selectedGenre={selectedGenre}
-            onGenreSelect={handleGenreSelect}
-          />
-          <ButtonTypeStation
-            name="Notícias"
-            selectedGenre={selectedGenre}
-            onGenreSelect={handleGenreSelect}
-          />
-          <ButtonTypeStation
-            name="Desporto"
-            selectedGenre={selectedGenre}
-            onGenreSelect={handleGenreSelect}
-          />
-          <ButtonTypeStation
-            name="Músicas"
-            selectedGenre={selectedGenre}
-            onGenreSelect={handleGenreSelect}
-          />
-
+          {stationNames.map((name, index) => (
+            <ButtonTypeStation
+              key={index}
+              name={name}
+              selectedGenre={selectedGenre}
+              onGenreSelect={handleGenreSelect}
+            />
+          ))}
         </ScrollView>
       </View>
       <Text style={styles.txt}>{selectedGenre}</Text>
@@ -59,12 +58,17 @@ export default function Home({ navigation }: any) {
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
-        {filteredRadioStations.map((station) => (
+        {filteredRadioStations.map((station: Station) => (
+          
           <CardStation
             key={station.title}
             image={station.image}
             stationName={station.title}
-            navigation={navigation}
+            onPress={() =>
+              navigation.navigate("Player", {
+                stationData: station,
+              })
+            }
           />
         ))}
       </ScrollView>

@@ -19,7 +19,6 @@ export function PlayerScreen({ route,navigation }: any) {
 
   const { stationData } = route.params;
 
-
   async function playSound() {
     try {
       if (stationData.src) {
@@ -77,7 +76,7 @@ export function PlayerScreen({ route,navigation }: any) {
       <View style={styles.containerImage}>
         <View style={styles.image}>
           <Image
-            source={require("../../assets/images/logo.png")}
+            source={{uri: stationData.img}}
             style={styles.img}
           />
         </View>

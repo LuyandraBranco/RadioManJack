@@ -7,14 +7,20 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-export function CardStation({ image, stationName, navigation }: any) {
+interface CardStationProps {
+  image: string;
+  stationName: string;
+  onPress: () => void; 
+}
+
+export function CardStation({ image, stationName, onPress }: CardStationProps) {
   return (
     <TouchableOpacity
       style={styles.card}
-      onPress={() => navigation.navigate("Player")}
+      onPress={onPress}
     >
       <ImageBackground
-        source={require("../assets/images/kamui.jpg")}
+        source={{uri:image}}
         style={styles.image}
         resizeMode="cover"
       >
